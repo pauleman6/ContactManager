@@ -1,0 +1,31 @@
+<div class="container">
+    <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+            <button class="btn btn-outline-success" type="button" (click)="listContact()">List Contact</button>
+            <button class="btn btn-outline-success" type="button" (click)="addContact()">Add Contact</button>
+        </form>
+    </nav>
+</div>
+<div class="container">
+    <div *ngIf="showContacts== 0">
+        <contact *ngFor='let c of list' [aContact]='c' 
+            (deleteEmitter)="removeContact($event)"
+            (editEmitter) = "receiveEditContact($event)">
+        </contact>
+    </div>
+    <div *ngIf="showContacts == 1">
+        <add-contact 
+            (eventEmitter)="receiveContact($event)" 
+            (cancelEmitter)="receiveCancelContact($event)"
+            >
+        </add-contact>
+    </div>
+    <div *ngIf="showContacts == 2" >
+        <edit-contact [aContact] = 'editPerson'
+            (cancelChangesEmitter) = "receiveCancelContact($event)"
+            (editContactEmitter) = "receiveEditedContact($event)">
+        </edit-contact>
+
+    </div>
+</div>
+

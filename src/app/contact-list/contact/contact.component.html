@@ -1,0 +1,22 @@
+<div class="container"> 
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">
+                {{aContact.fName + " " + aContact.lName}}
+            </h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    {{aContact.phoneNumber}}
+                </li>
+            </ul>
+            <div class="text-right">
+                <button class="btn btn-primary rounded-pill" (click) = editContact()>Edit</button>
+                <button class="btn btn-primary rounded-pill" (click) = deleteContact()>Delete</button>
+            </div>
+            
+          
+
+        </div>
+
+    </div>
+</div>
